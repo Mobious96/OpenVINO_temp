@@ -82,11 +82,6 @@ void BubbleSort(Array<arType> &A)
 	}
 }
 
-void foo(int &a)
-{
-	a = 3;
-}
-
 
 int main(int* argc, char** argv)
 {
