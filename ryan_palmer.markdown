@@ -382,8 +382,8 @@ Input to run through the docker, placed [here](https://docs.openvinotoolkit.org/
 		Proxy server listening on http://127.0.0.1:5665		__
 Why are there so many warnings? Did I fail somewhere? I really don't understand what I did wrong.  
 
-	But ok, let's move on. As being told [here](https://docs.openvinotoolkit.org/latest/_docs_Workbench_DG_Install_from_Docker_Hub.html) I need to open http://127.0.0.1:5665. It doesn't work. **However** I saw how the hired dev used some wiki on github and he tried this command:  
-	`docker run -p 0.0.0.0:5665:5665 --privileged -v /dev/bus/usb:/dev/bus/usb -v /dev/dri:/dev/dri -e PROXY_HOST_ADDRESS=0.0.0.0 -i openvino/workbench`  
+But ok, let's move on. As being told [here](https://docs.openvinotoolkit.org/latest/_docs_Workbench_DG_Install_from_Docker_Hub.html) I need to open http://127.0.0.1:5665. It doesn't work. **However** I saw how the hired dev used some wiki on github and he tried this command:  
+`docker run -p 0.0.0.0:5665:5665 --privileged -v /dev/bus/usb:/dev/bus/usb -v /dev/dri:/dev/dri -e PROXY_HOST_ADDRESS=0.0.0.0 -i openvino/workbench`  
 
 		Proxy server listening on http://0.0.0.0:5665
 
@@ -397,14 +397,10 @@ https://lookback.io/watch/VQANLLgCQCm5ppX3p
 5. **Suggestions**
 
 	1. Move whole [Deep Learning Workbench Developer Installation Guide](https://docs.openvinotoolkit.org/latest/_docs_Workbench_DG_Install_Workbench.html) to the **GETTING STARTED** section from **GUIDES**, because all installation are there. (Or put all guides in **GUIDES** section, because it's confusing: guides are everywhere)
-
 	2. Give a basic examples with explanations how to work with [Docker](https://docs.docker.com/engine/reference/run/), explain how to use it to maintain the Workbench
-
 	3. After installation, I want to test, to do something really fast and **clear**.
->You have successfully installed the OpenVINO™ DL Workbench. [Move on to Work with Models and Sample Datasets](https://docs.openvinotoolkit.org/latest/_docs_Workbench_DG_Work_with_Models_and_Sample_Datasets.html).
-
+>You have successfully installed the OpenVINO™ DL Workbench. [Move on to Work with Models and Sample Datasets](https://docs.openvinotoolkit.org/latest/_docs_Workbench_DG_Work_with_Models_and_Sample_Datasets.html).  
 	But this page is kinda empty. It would be better to have examples on the first page with full explanation what now you can do. *Like, give me something interesting already*
-
 	4. To give an explanation what *models*, *samples* are, where can we find it to make quick test and so on. I do understand, that many experienced developers already know that, but you know, if I want to start from nothing, where should I gain such info?
 
 ### Working with DL Workbench
