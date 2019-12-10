@@ -146,7 +146,7 @@ No progress since then, I dropped it
 Open a terminal in the DL Workbench folder. The path to the folder is
 /< path_to_installed_package>/deployment_tools/tools/workbench.
 
-	Firstly, I didn't get where installed package placed. It's kinda complicated to work with ubuntu. (The default path is **/opt/intel/openvino/**, I think it must be placed [here](https://docs.openvinotoolkit.org/latest/_docs_Workbench_DG_Install_from_Package.html) instead of *path_to_installed_package*, because every other pages do so and it's intuitive)
+Firstly, I didn't get where installed package placed. It's kinda complicated to work with ubuntu. (The default path is **/opt/intel/openvino/**, I think it must be placed [here](https://docs.openvinotoolkit.org/latest/_docs_Workbench_DG_Install_from_Package.html) instead of *path_to_installed_package*, because every other pages do so and it's intuitive)
 
 3. **Run DL Workbench**  
 Run the following command, specifying the path to the downloaded **archive** (not very clear) with the OpenVINO™ toolkit package:  
