@@ -112,6 +112,7 @@ If you see any errors or issues with the documentation or encountered stumbling 
 5.  smart-video-workshop-master/dl-model-training/Python/Deep_Learning_Tutorial.ipynb: I didn't get what "Epoches" are, why are there 5 of them.
 
 6. [4. Build the sample application with make file](https://github.com/intel-iot-devkit/smart-video-workshop/tree/master/object-detection#4-build-the-sample-application-with-make-file) gave me  
+
 		main.cpp: In function ‘int main(int, char**)’:
 		main.cpp:133:95: warning: ‘InferenceEngine::InferencePlugin InferenceEngine::PluginDispatcher::getPluginByDevice(const string&) const’ is deprecated [-Wdeprecated-declarations]
 		 ngine::InferenceEnginePluginPtr _plugin(dispatcher.getPluginByDevice(FLAGS_d));
@@ -149,19 +150,20 @@ Open a terminal in the DL Workbench folder. The path to the folder is
 
 3. **Run DL Workbench**  
 Run the following command, specifying the path to the downloaded **archive** (not very clear) with the OpenVINO™ toolkit package:  
-	`/opt/intel/openvino/deployment_tools/tools/workbench**$ ./run_openvino_workbench.sh -PACKAGE_PATH ~/Downloads/l_openvino_toolkit_p_2019.3.376.tgz**`  
-		Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.40/containers/json?all=1: dial unix /var/run/docker.sock: connect: permission denied  
+	`/opt/intel/openvino/deployment_tools/tools/workbench**$ ./run_openvino_workbench.sh -PACKAGE_PATH ~/Downloads/l_openvino_toolkit_p_2019.3.376.tgz**`  	
+	
+	Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.40/containers/json?all=1: dial unix /var/run/docker.sock: connect: permission denied  
 		/tmp/workbench /opt/intel/openvino/deployment_tools/tools/workbench  
-		Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post http://%2Fvar%2Frun%2Fdocker.sock/v1.40/build?buildargs=%7B%22db_password%22%3A%22openvino%22%2C%22http_proxy%22%3A%22http%3A%2F%2Fproxy-chain.intel.com%3A912%22%2C%22https_proxy%22%3A%22http%3A%2F%2Fproxy-chain.intel.com%3A911%22%2C%22no_proxy%22%3A%22intel.com%2C.intel.com%2Clocalhost%2C127.0.0.1%22%2C%22rabbitmq_password%22%3A%22openvino%22%7D&cachefrom=%5B%5D&cgroupparent=&cpuperiod=0&cpuquota=0&cpusetcpus=&cpusetmems=&cpushares=0&dockerfile=Dockerfile&labels=%7B%7D&memory=0&memswap=0&networkmode=default&rm=1&session=orvrmh581616p3p0t4shxtcxz&shmsize=0&t=workbench&target=&ulimits=null&version=1: dial unix /var/run/docker.sock: connect: permission denied
+		Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post http://%2Fvar%2Frun%2Fdocker.sock/v1.40/build?..........ll&version=1: dial unix /var/run/docker.sock: connect: permission denied
 
-	Did:  
+Did:  
 	`trifonov@nnlicv411:~ $ export https_proxy=http://proxy-chain.intel.com:912/`  
 	`trifonov@nnlicv411:~ $ export http_proxy=http://proxy-chain.intel.com:911/`  
 	`trifonov@nnlicv411:~ $ export no_proxy=localhost,127.0.0.1`
 
-	But still same permission issue. After an hour I've finally found a [FIX](https://stackoverflow.com/questions/48957195/how-to-fix-docker-got-permission-denied-issue/51362528#51362528). At this point I've already hated my life.  
+But still same permission issue. After an hour I've finally found a [FIX](https://stackoverflow.com/questions/48957195/how-to-fix-docker-got-permission-denied-issue/51362528#51362528). At this point I've already hated my life.  
 
-	New input:  
+New input:  
 `trifonov@nnlicv411:/opt/intel/openvino/deployment_tools/tools/workbench$ ./run_openvino_workbench.sh -PACKAGE_PATH ~/Downloads/l_openvino_toolkit_p_2019.3.376.tgz`  
 
 			Notes, that ./run_openvino_workbench says about parameters:
@@ -169,9 +171,10 @@ Run the following command, specifying the path to the downloaded **archive** (no
 
 			but I have .tgz and it worked fine
 
-	So, why do I need to utilize old archive of openvino? I thought it's needed only to extract files from there (then build and install). I think, this is strange.  
+So, why do I need to utilize old archive of openvino? I thought it's needed only to extract files from there (then build and install). I think, this is strange.  
 	Output:
-		https://salsa.debian.org/opencl-team/ocl-icd.git  
+	
+	https://salsa.debian.org/opencl-team/ocl-icd.git  
 		Please use:  
 		git clone https://salsa.debian.org/opencl-team/ocl-icd.git  
 		to retrieve the latest (possibly unreleased) updates to the package.  
@@ -222,10 +225,10 @@ Run the following command, specifying the path to the downloaded **archive** (no
 		Picking 'postgresql-common' as source package instead of 'postgresql'  
 		The command '/bin/sh -c sed -i '3ideb-src http://deb.debian.org/debian buster main' /etc/apt/sources.list &&     apt-get update &&     apt-get install -y --no-install-recommends ${OPENVINO_DEPENDENCIES} ${WORKBENCH_DEPENDENCIES} &&     apt-get source ${OPENVINO_DEPENDENCIES} ${WORKBENCH_DEPENDENCIES} &&     rm -rf /var/lib/apt/lists/*' returned a non-zero code: 100  
 		* sad* *
-	So, there are lots of erros and http://127.0.0.1:5665/ doesn't work. What did I miss? I don't know.  
-	Input to run through the docker, placed [here](https://docs.openvinotoolkit.org/latest/_docs_Workbench_DG_Install_from_Docker_Hub.html):  
+So, there are lots of erros and http://127.0.0.1:5665/ doesn't work. What did I miss? I don't know.  
+Input to run through the docker, placed [here](https://docs.openvinotoolkit.org/latest/_docs_Workbench_DG_Install_from_Docker_Hub.html):  
 
-	 ``trifonov@nnlicv411:/opt/intel/openvino/deployment_tools/tools/workbench$ docker run -p 127.0.0.1:5665:5665 --name workbench --privileged -v /dev/bus/usb:/dev/bus/usb -v /dev/dri:/dev/dri -it openvino/workbench:latest --build-arg https_proxy=http://proxy-chain.intel.com:912/ --build-arg http_proxy=http://proxy-chain.intel.com:911/ --build-arg no_proxy=127.0.0.0 ``   
+``trifonov@nnlicv411:/opt/intel/openvino/deployment_tools/tools/workbench$ docker run -p 127.0.0.1:5665:5665 --name workbench --privileged -v /dev/bus/usb:/dev/bus/usb -v /dev/dri:/dev/dri -it openvino/workbench:latest --build-arg https_proxy=http://proxy-chain.intel.com:912/ --build-arg http_proxy=http://proxy-chain.intel.com:911/ --build-arg no_proxy=127.0.0.0 ``   
 
 	 Output:
 
@@ -384,8 +387,8 @@ Why are there so many warnings? Did I fail somewhere? I really don't understand 
 
 		Proxy server listening on http://0.0.0.0:5665
 
-	Ok, I tried to connect http://0.0.0.0:5665, because it supposed to work there, but it didn't. Then I saw connected to 127.0.0.1:5665 and **it worked** for me as well.
-	So, in conclusion, I couldn't install it without a help.
+Ok, I tried to connect http://0.0.0.0:5665, because it supposed to work there, but it didn't. Then I saw connected to 127.0.0.1:5665 and **it worked** for me as well.
+So, in conclusion, I couldn't install it without a help.
 
 4. **Questions**  
 So, how do I close workbench? Just CTRL+C? Do I need to do `docker stop workbench`, how to run it again?
